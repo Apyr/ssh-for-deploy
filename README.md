@@ -1,7 +1,7 @@
 # ssh-for-deploy
 Docker image with alpine linux for easy ssh deploy.
 
-## using
+## How to use
 ````
 DEPLOY_KEY="-----BEGIN RSA PRIVATE KEY-----
 #LONG BASE64 SSH PRIVATE KEY
