@@ -1,16 +1,10 @@
 FROM alpine:3.6
+WORKDIR /root
 
 RUN apk update 
 RUN apk add openssh-client bash nano rsync
 
-WORKDIR /root
-
-ADD add-key /bin
-RUN chmod +x /bin/add-key
-
-ADD init.sh /root
-RUN chmod +x /root/init.sh
-
 ADD ssh_config /etc/ssh/ssh_config
+ADD start-deploy /start-deploy
 
-CMD ["bash", "-c", "/root/init.sh"]
+CMD ["bash"]

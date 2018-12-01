@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$DEPLOY_KEY" ]
+then
+    echo "DEPLOY_KEY should be set"
+else
+    eval $(ssh-agent -s)
+
+    pushd /tmp
+    echo "$DEPLOY_KEY" > id_rsa
+    chmod 600 id_rsa
+    ssh-add id_rsa
+    rm -f id_rsa
+    popd
+fi
